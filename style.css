@@ -1,0 +1,128 @@
+:root {
+	--width-filterContainer: 400px;
+	--color-accent: rgb(106, 88, 117);
+	--color-bg: gainsboro;
+}
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	/* background-color: var(--color-accent); */
+}
+
+#app {
+	display: grid;
+	grid-template-columns: var(--width-filterContainer) 1fr;
+	background-color: var(--color-accent);
+}
+
+#filter_container {
+	height: 100vh;
+	height: 100dvh;
+	background-color: var(--color-accent);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	transition: left 0.6s ease;
+}
+
+#filter_content {
+	width: var(--width-filterContainer);
+	padding-inline: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	color: white;
+}
+
+#datavis_container {
+	background-color: var(--color-bg);
+	/* width: 100%; */
+	height: fit-content;
+}
+
+button#return-to-filters {
+	width: 90%;
+	margin-inline: 5%;
+	height: 3rem;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+
+	position: fixed;
+	bottom: 1rem;
+	z-index: 999;
+
+	color: white;
+	background-color: var(--color-accent);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/*                                                          */
+/*     INITIAL MODE                                         */
+/*                                                          */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#app.initialMode {
+	overflow-y: scroll;
+}
+
+.initialMode #filter_container {
+	position: relative;
+	left: calc((100vw - var(--width-filterContainer)) / 2);
+	/* The -14px is a manual adjustment for scrollbar gutter */
+	transition: none;
+}
+
+.initialMode #datavis_container {
+	display: none;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/*                                                          */
+/*     STACKED MODE                                         */
+/*                                                          */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#app.stackedMode {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.stackedMode #filter_container {
+	/* width: 100%; */
+}
+
+.stackedMode #datavis_container {
+	height: fit-content;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/*                                                          */
+/*     ADJACENT MODE                                        */
+/*                                                          */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#app.adjacentMode {
+	overflow-y: hidden;
+}
+
+.adjacentMode #filter_container {
+	position: relative;
+	left: 0;
+}
+
+.adjacentMode #datavis_container {
+	height: 100vh;
+	height: 100dvh;
+	overflow-y: scroll;
+}
+
+/* .adjacentMode button#return-to-filters {
+	display: none;
+} */
