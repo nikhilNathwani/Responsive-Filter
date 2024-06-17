@@ -1,6 +1,7 @@
 :root {
 	--width-filterContainer: 400px;
 	--color-accent: rgb(106, 88, 117);
+	--color-dark: hsl(277, 14%, 20%);
 	--color-bg: gainsboro;
 }
 
@@ -20,31 +21,34 @@ body {
 	background-color: var(--color-accent);
 }
 
-#filter_container {
+#filter-container {
 	height: 100vh;
 	height: 100dvh;
 	background-color: var(--color-accent);
 
 	display: flex;
-	flex-direction: column;
+	flex-direction: column nowrap;
 	align-items: center;
 	justify-content: center;
 
 	transition: left 0.6s ease;
+
+	/* border-right: 2px solid var(--color-dark);
+	box-shadow: 10px 0 6px rgba(0, 0, 0, 0.3); */
 }
 
-#filter_content {
+#filter-content {
 	width: var(--width-filterContainer);
 	padding-inline: 2rem;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	color: white;
+	/* align-items: center; */
+	/* justify-content: center; */
+	/* text-align: center; */
+	/* color: white; */
 }
 
-#datavis_container {
+#result-container {
 	background-color: var(--color-bg);
 	/* width: 100%; */
 	height: fit-content;
@@ -74,14 +78,14 @@ button#return-to-filters {
 	overflow-y: scroll;
 }
 
-.initialMode #filter_container {
+.initialMode #filter-container {
 	position: relative;
 	left: calc((100vw - var(--width-filterContainer)) / 2);
 	/* The -14px is a manual adjustment for scrollbar gutter */
 	transition: none;
 }
 
-.initialMode #datavis_container {
+.initialMode #result-container {
 	display: none;
 }
 
@@ -95,11 +99,11 @@ button#return-to-filters {
 	flex-flow: column nowrap;
 }
 
-.stackedMode #filter_container {
+.stackedMode #filter-container {
 	/* width: 100%; */
 }
 
-.stackedMode #datavis_container {
+.stackedMode #result-container {
 	height: fit-content;
 }
 
@@ -112,12 +116,12 @@ button#return-to-filters {
 	overflow-y: hidden;
 }
 
-.adjacentMode #filter_container {
+.adjacentMode #filter-container {
 	position: relative;
 	left: 0;
 }
 
-.adjacentMode #datavis_container {
+.adjacentMode #result-container {
 	height: 100vh;
 	height: 100dvh;
 	overflow-y: scroll;
@@ -125,4 +129,111 @@ button#return-to-filters {
 
 /* .adjacentMode button#return-to-filters {
 	display: none;
+} */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/*                                                          */
+/*     FILTER AREA                                         */
+/*                                                          */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#filter-header {
+	/* width: 90%; */
+	/* margin-inline: auto; */
+	/* border: 4px double var(--color-bg);
+	border-radius: 12px; */
+	/* background-color: var(--green-dark); */
+	color: var(--color-bg);
+
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	gap: 0.5rem;
+	/* padding: 2rem; */
+}
+
+#filter-header h1 {
+	font-family: "Paytone One", sans-serif;
+	font-size: 2.5rem;
+}
+
+/* #filter-header h2 {
+	font-size: 1.25rem;
+	font-weight: 400;
+} */
+
+#filter-paragraph {
+	width: 100%;
+	padding: 1rem;
+
+	display: flex;
+	flex-flow: column nowrap;
+	/* align-items: left; */
+	justify-content: center;
+	gap: 1.5rem;
+
+	font-size: 1rem;
+	/* font-weight: bold; */
+	color: var(--color-bg);
+}
+
+#filter-row {
+	width: 100%;
+}
+
+button {
+	/* width: 5rem; */
+	height: 3.5rem;
+	padding-inline: 1ch;
+	border-radius: 6px;
+	background-color: var(--color-accent);
+	border: 2px solid var(--color-bg);
+	border-top: 3px solid var(--color-bg);
+	border-left: 3px solid var(--color-bg);
+	font-size: 1rem;
+	font-weight: bold;
+	color: var(--color-bg);
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+	background-color: var(--color-bg);
+	color: var(--color-accent);
+}
+
+button:active {
+	transform: translateY(2px);
+	background-color: var(--color-bg);
+	color: var(--color-accent);
+}
+
+select {
+	/* height: 2rem; */
+	/* margin: 0 5px; */
+	padding: 0.25rem 0;
+	/* position: relative;
+	bottom: 9px; */
+	width: 100%;
+	background-color: var(--color-bg);
+	font-size: 1rem;
+	font-weight: bold;
+	color: var(--color-accent);
+	/* text-align: center; */
+}
+
+/* @media (max-width: 768px) {
+	#app {
+		flex-direction: column;
+	}
+
+	#filter-area {
+		width: 100%;
+	}
+}
+
+@media (min-width: 769px) {
+	#app {
+		height: 100vh;
+	}
 } */

@@ -5,18 +5,26 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap"
+			rel="stylesheet"
+		/>
 		<title>Document</title>
 	</head>
 	<body>
 		<div id="app" class="initialMode">
-			<div id="filter_container">
-				<div id="filter_content">
-					<h1 id="filter-title">Responsive Filter UX</h1>
-					<p id="filter-subtitle">
-						This responsive layout ensures that your filters and
-						data viz will coexist seamlessly, regardless of screen
-						size.
-					</p>
+			<div id="filter-container">
+				<div id="filter-content">
+					<div id="filter-header">
+						<h1 id="filter-title">NBA Bet Simulator</h1>
+						<p id="filter-subtitle">
+							Pick a team to win/lose every game of a season. Find
+							out if this simple strategy would have been
+							profitable.
+						</p>
+					</div>
 					<div id="filter-paragraph">
 						<div class="filter-row">
 							<div>Team:</div>
@@ -41,7 +49,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="datavis_container">
+			<div id="result-container">
 				<button id="return-to-filters">Return to filters</button>
 				<p>
 					Lorem ipsum, dolor sit amet consectetur adipisicing elit.
