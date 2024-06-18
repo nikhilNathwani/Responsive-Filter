@@ -16,8 +16,8 @@ const APP_STATE = {
 
 // Page sections
 var appContainer = document.getElementById("app");
-var filterContainer = document.getElementById("filter-container");
-var resultContainer = document.getElementById("result-container");
+var filterContainer = document.getElementById("filter_container");
+var datavisContainer = document.getElementById("datavis_container");
 
 // Buttons
 const submitButton = document.getElementById("submit-button");
@@ -48,13 +48,13 @@ submitButton.addEventListener("click", function () {
 
 	if (window.innerWidth < minWidthAdjacentMode) {
 		setAppState(APP_STATE.STACKED);
-		resultContainer.scrollIntoView({
+		datavisContainer.scrollIntoView({
 			behavior: "smooth",
 			block: "start",
 		});
 	} else {
 		setAppState(APP_STATE.ADJACENT);
-		resultContainer.scrollTo({ top: 0, behavior: "smooth" });
+		datavisContainer.scrollTo({ top: 0, behavior: "smooth" });
 	}
 });
 
@@ -68,7 +68,7 @@ window.addEventListener("resize", function () {
 		!appContainer.classList.contains(APP_STATE.STACKED)
 	) {
 		setAppState(APP_STATE.STACKED);
-		resultContainer.scrollIntoView({ block: "start" });
+		datavisContainer.scrollIntoView({ block: "start" });
 		return;
 	}
 	if (
