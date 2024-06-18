@@ -20,7 +20,7 @@ body {
 	background-color: var(--color-accent);
 }
 
-#filter_container {
+#filter-container {
 	height: 100vh;
 	height: 100dvh;
 	background-color: var(--color-accent);
@@ -33,7 +33,7 @@ body {
 	transition: left 0.6s ease;
 }
 
-#filter_content {
+#filter-content {
 	width: var(--width-filterContainer);
 	padding-inline: 2rem;
 	display: flex;
@@ -44,7 +44,7 @@ body {
 	color: white;
 }
 
-#datavis_container {
+#result-container {
 	background-color: var(--color-bg);
 	/* width: 100%; */
 	height: fit-content;
@@ -74,14 +74,14 @@ button#return-to-filters {
 	overflow-y: scroll;
 }
 
-.initialMode #filter_container {
+.initialMode #filter-container {
 	position: relative;
 	left: calc((100vw - var(--width-filterContainer)) / 2);
 	/* The -14px is a manual adjustment for scrollbar gutter */
 	transition: none;
 }
 
-.initialMode #datavis_container {
+.initialMode #result-container {
 	display: none;
 }
 
@@ -95,11 +95,11 @@ button#return-to-filters {
 	flex-flow: column nowrap;
 }
 
-.stackedMode #filter_container {
+.stackedMode #filter-container {
 	/* width: 100%; */
 }
 
-.stackedMode #datavis_container {
+.stackedMode #result-container {
 	height: fit-content;
 }
 
@@ -112,12 +112,12 @@ button#return-to-filters {
 	overflow-y: hidden;
 }
 
-.adjacentMode #filter_container {
+.adjacentMode #filter-container {
 	position: relative;
 	left: 0;
 }
 
-.adjacentMode #datavis_container {
+.adjacentMode #result-container {
 	height: 100vh;
 	height: 100dvh;
 	overflow-y: scroll;
